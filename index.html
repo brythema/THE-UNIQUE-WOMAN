@@ -1,0 +1,3451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Unique Woman · A Christ-Centered Movement</title>
+
+    <!-- ===== Google Fonts ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+    <style>
+        /* ============================================================
+                   CSS CUSTOM PROPERTIES — The Brand Palette
+                   ============================================================ */
+        :root {
+            --primary-purple: #6B2E83;
+            --royal-purple: #5A2575;
+            --soft-lavender: #CFA8FF;
+            --soft-pink: #F7C6DF;
+            --rose-pink: #E86BAA;
+            --cream: #FFF9F5;
+            --warm-white: #FAF8FB;
+            --gold: #D4AF37;
+            --gold-light: #e8d07a;
+            --text-dark: #2c1a2e;
+            --text-muted: #5a4a5e;
+            --shadow-soft: 0 20px 60px rgba(107, 46, 131, 0.12);
+            --shadow-page: 0 30px 80px rgba(107, 46, 131, 0.18);
+            --radius-card: 20px;
+            --transition-smooth: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            --font-heading: 'Cormorant Garamond', 'Playfair Display', serif;
+            --font-body: 'Poppins', 'Inter', sans-serif;
+            --font-script: 'Great Vibes', cursive;
+        }
+
+        /* ============================================================
+                   RESET & BASE
+                   ============================================================ */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--cream);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        button {
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-family: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ============================================================
+                   SCROLLBAR
+                   ============================================================ */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--cream);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--soft-lavender);
+            border-radius: 12px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-purple);
+        }
+
+        /* ============================================================
+                   UTILITY
+                   ============================================================ */
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            font-weight: 600;
+            color: var(--primary-purple);
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 640px;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .gold-accent {
+            color: var(--gold);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 38px;
+            border-radius: 60px;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.4px;
+            transition: var(--transition-smooth);
+            border: 1.5px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--primary-purple);
+            color: #fff;
+            border-color: var(--primary-purple);
+        }
+        .btn-primary:hover {
+            background: var(--royal-purple);
+            border-color: var(--royal-purple);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(107, 46, 131, 0.25);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-purple);
+            border-color: var(--primary-purple);
+        }
+        .btn-outline:hover {
+            background: var(--primary-purple);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(107, 46, 131, 0.15);
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: #fff;
+            border-color: var(--gold);
+        }
+        .btn-gold:hover {
+            background: #c4a031;
+            border-color: #c4a031;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.30);
+        }
+
+        /* ============================================================
+                   PAGE TURN — JOURNAL ANIMATION (overlay)
+                   ============================================================ */
+        .page-turn-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .page-turn-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .page-turn-overlay .page-shadow {
+            position: absolute;
+            inset: 0;
+            background: rgba(44, 26, 46, 0.30);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        .page-turn-overlay .page-card {
+            position: relative;
+            width: 92%;
+            max-width: 560px;
+            background: var(--cream);
+            border-radius: 24px;
+            padding: 48px 40px;
+            box-shadow: var(--shadow-page);
+            transform: perspective(1200px) rotateY(-4deg) scale(0.96);
+            transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1),
+                opacity 0.6s ease;
+            opacity: 0;
+            will-change: transform, opacity;
+            border: 1px solid rgba(212, 175, 55, 0.12);
+        }
+
+        .page-turn-overlay.active .page-card {
+            transform: perspective(1200px) rotateY(0deg) scale(1);
+            opacity: 1;
+        }
+
+        .page-turn-overlay .page-card .curl {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, transparent 50%, rgba(212, 175, 55, 0.10) 50%);
+            border-radius: 0 24px 0 0;
+            pointer-events: none;
+        }
+
+        .page-turn-overlay .page-card .close-btn {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            font-size: 1.8rem;
+            color: var(--text-muted);
+            transition: var(--transition-smooth);
+            line-height: 1;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-body);
+        }
+        .page-turn-overlay .page-card .close-btn:hover {
+            color: var(--primary-purple);
+            transform: rotate(90deg);
+        }
+
+        .page-turn-overlay .page-card h2 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--primary-purple);
+            margin-bottom: 8px;
+        }
+        .page-turn-overlay .page-card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 6px;
+        }
+        .page-turn-overlay .page-card .gold-line {
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+            margin: 16px 0 20px;
+        }
+        .page-turn-overlay .page-card .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 12px;
+        }
+        .page-turn-overlay .page-card .nav-links a {
+            padding: 10px 0;
+            font-weight: 400;
+            color: var(--text-dark);
+            border-bottom: 1px solid rgba(107, 46, 131, 0.06);
+            transition: var(--transition-smooth);
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .page-turn-overlay .page-card .nav-links a:hover {
+            color: var(--primary-purple);
+            padding-left: 10px;
+            border-bottom-color: var(--gold);
+        }
+        .page-turn-overlay .page-card .nav-links a .icon {
+            display: inline-block;
+            width: 28px;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        /* ============================================================
+                   HEADER / NAV
+                   ============================================================ */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 0%;
+            background: linear-gradient(90deg, var(--gold), var(--rose-pink) 55%, var(--primary-purple));
+            z-index: 1001;
+            transition: width 0.12s linear;
+            pointer-events: none;
+        }
+
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            background: rgba(255, 249, 245, 0.82);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.10);
+            transition: var(--transition-smooth);
+        }
+
+        .site-header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .nav-desktop {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        .nav-desktop a {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            transition: var(--transition-smooth);
+            position: relative;
+            letter-spacing: 0.2px;
+        }
+        .nav-desktop a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition-smooth);
+        }
+        .nav-desktop a:hover {
+            color: var(--primary-purple);
+        }
+        .nav-desktop a:hover::after {
+            width: 100%;
+        }
+
+        .nav-desktop .nav-btn {
+            padding: 8px 24px;
+            border-radius: 60px;
+            background: var(--primary-purple);
+            color: #fff !important;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: var(--transition-smooth);
+        }
+        .nav-desktop .nav-btn:hover {
+            background: var(--royal-purple);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(107, 46, 131, 0.20);
+        }
+        .nav-desktop .nav-btn::after {
+            display: none;
+        }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            padding: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            flex-shrink: 0;
+            z-index: 2;
+        }
+        .hamburger span {
+            display: block;
+            width: 28px;
+            height: 2px;
+            background: var(--primary-purple);
+            border-radius: 4px;
+            transition: var(--transition-smooth);
+            transform-origin: center;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Mobile nav */
+        .nav-mobile {
+            display: none;
+            position: fixed;
+            top: 74px;
+            left: 0;
+            right: 0;
+            background: rgba(255, 249, 245, 0.96);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 32px 24px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.10);
+            flex-direction: column;
+            gap: 8px;
+            z-index: 999;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .nav-mobile.open {
+            display: flex;
+        }
+        .nav-mobile a {
+            padding: 12px 0;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            border-bottom: 1px solid rgba(107, 46, 131, 0.06);
+            transition: var(--transition-smooth);
+            font-weight: 400;
+        }
+        .nav-mobile a:hover {
+            color: var(--primary-purple);
+            padding-left: 8px;
+        }
+        .nav-mobile .nav-btn-mobile {
+            margin-top: 12px;
+            text-align: center;
+            background: var(--primary-purple);
+            color: #fff !important;
+            padding: 14px;
+            border-radius: 60px;
+            font-weight: 500;
+            border: none;
+        }
+        .nav-mobile .nav-btn-mobile:hover {
+            background: var(--royal-purple);
+        }
+
+        /* ============================================================
+                   HERO
+                   ============================================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 120px 0 80px;
+            background: linear-gradient(165deg, var(--cream) 0%, var(--warm-white) 40%, #f5edf7 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 60%;
+            height: 80%;
+            background: radial-gradient(ellipse, rgba(207, 168, 255, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.8rem, 6vw, 4.8rem);
+            font-weight: 600;
+            line-height: 1.08;
+            color: var(--primary-purple);
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+        .hero-content h1 .gold-accent {
+            display: inline-block;
+            position: relative;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 480px;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 36px;
+        }
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        /* Gentle one-time entrance on first paint — hero content rises in, image settles just after. */
+        @keyframes heroRise {
+            from { opacity: 0; transform: translateY(22px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-content > * {
+            animation: heroRise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+        .hero-content > *:nth-child(1) { animation-delay: 0.05s; }
+        .hero-content > *:nth-child(2) { animation-delay: 0.16s; }
+        .hero-content > *:nth-child(3) { animation-delay: 0.27s; }
+        .hero-content > *:nth-child(4) { animation-delay: 0.38s; }
+        .hero-image {
+            animation: heroRise 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+            animation-delay: 0.2s;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-image .frame {
+            width: 100%;
+            max-width: 460px;
+            aspect-ratio: 3/4;
+            border-radius: 32px;
+            background: linear-gradient(145deg, var(--soft-lavender), var(--soft-pink));
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image .frame .silhouette {
+            font-size: 10rem;
+            opacity: 0.25;
+            color: var(--primary-purple);
+            line-height: 1;
+            margin-top: 20px;
+            user-select: none;
+        }
+
+        .hero-image .frame .bible-icon {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            font-size: 2.4rem;
+            opacity: 0.20;
+        }
+
+        .hero-image .frame .flower-deco {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            opacity: 0.12;
+        }
+
+        .hero-image .gold-border {
+            position: absolute;
+            inset: -12px;
+            border: 1.5px solid rgba(212, 175, 55, 0.15);
+            border-radius: 40px;
+            pointer-events: none;
+        }
+
+        .hero .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.5;
+            animation: floatDown 2.4s ease-in-out infinite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+        .hero .scroll-indicator span {
+            font-size: 1.4rem;
+        }
+
+        @keyframes floatDown {
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(8px);
+            }
+        }
+
+        /* ============================================================
+                   WHO WE ARE
+                   ============================================================ */
+        .who-we-are {
+            background: var(--warm-white);
+        }
+        .who-we-are .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 40px;
+            align-items: center;
+        }
+        .who-we-are .grid .text p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        .who-we-are .grid .text .verse {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            color: var(--primary-purple);
+            font-style: italic;
+            border-left: 3px solid var(--gold);
+            padding-left: 24px;
+            margin: 28px 0;
+        }
+        .who-we-are .grid .image-placeholder {
+            background: linear-gradient(145deg, var(--soft-pink), var(--soft-lavender));
+            border-radius: 32px;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: rgba(107, 46, 131, 0.15);
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            overflow: hidden;
+        }
+        .who-we-are .grid .image-placeholder::after {
+            content: '✦';
+            font-size: 8rem;
+            opacity: 0.08;
+            position: absolute;
+        }
+        /* Standalone fallback so .image-placeholder also works outside .who-we-are .grid (e.g. About page) */
+        .image-placeholder {
+            background: linear-gradient(145deg, var(--soft-pink), var(--soft-lavender));
+            border-radius: 32px;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* ============================================================
+                   EXPRESSIONS — 6 CARDS
+                   ============================================================ */
+        .expressions {
+            background: var(--cream);
+        }
+        .expressions .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .expressions .card {
+            background: #fff;
+            border-radius: var(--radius-card);
+            padding: 36px 28px 32px;
+            box-shadow: 0 4px 20px rgba(107, 46, 131, 0.06);
+            transition: var(--transition-smooth);
+            border: 1px solid rgba(212, 175, 55, 0.06);
+            position: relative;
+        }
+        .expressions .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(107, 46, 131, 0.10);
+            border-color: rgba(212, 175, 55, 0.15);
+        }
+        .expressions .card .icon {
+            font-size: 2.6rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .expressions .card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            color: var(--primary-purple);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .expressions .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+        .expressions .card .learn-more {
+            display: inline-block;
+            margin-top: 16px;
+            color: var(--gold);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition-smooth);
+        }
+        .expressions .card .learn-more:hover {
+            color: var(--primary-purple);
+            transform: translateX(4px);
+        }
+
+        /* ============================================================
+                   PROVERBS 31 SECTION
+                   ============================================================ */
+        .proverbs-section {
+            background: var(--warm-white);
+            position: relative;
+            overflow: hidden;
+        }
+        .proverbs-section::before {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 50%;
+            height: 60%;
+            background: radial-gradient(ellipse, rgba(247, 198, 223, 0.20) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .proverbs-section .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        .proverbs-section .grid .verse-block {
+            background: rgba(255, 255, 255, 0.60);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: var(--radius-card);
+            padding: 40px 36px;
+            border: 1px solid rgba(212, 175, 55, 0.10);
+            box-shadow: var(--shadow-soft);
+        }
+        .proverbs-section .grid .verse-block .verse-text {
+            font-family: var(--font-heading);
+            font-size: clamp(1.4rem, 2.5vw, 2rem);
+            font-weight: 400;
+            color: var(--primary-purple);
+            line-height: 1.5;
+            font-style: italic;
+        }
+        .proverbs-section .grid .verse-block .verse-ref {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: var(--gold);
+            font-weight: 500;
+            margin-top: 12px;
+            display: block;
+            letter-spacing: 0.5px;
+        }
+        .proverbs-section .grid .verse-block p {
+            color: var(--text-muted);
+            font-weight: 300;
+            margin-top: 20px;
+            line-height: 1.8;
+        }
+
+        .proverbs-section .grid .right-image {
+            background: linear-gradient(145deg, var(--soft-lavender), var(--soft-pink));
+            border-radius: 32px;
+            aspect-ratio: 3/4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            color: rgba(107, 46, 131, 0.10);
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            overflow: hidden;
+        }
+        .proverbs-section .grid .right-image span {
+            font-size: 8rem;
+            opacity: 0.12;
+            user-select: none;
+        }
+
+        /* ============================================================
+                   TODAY'S DEVOTIONAL
+                   ============================================================ */
+        .devotional-today {
+            background: var(--cream);
+        }
+        .devotional-today .card {
+            background: #fff;
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            border: 1px solid rgba(212, 175, 55, 0.06);
+            margin-top: 40px;
+        }
+        .devotional-today .card .img {
+            background: linear-gradient(145deg, var(--soft-pink), var(--soft-lavender));
+            min-height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: rgba(107, 46, 131, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        .devotional-today .card .img img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        .devotional-today .card .img .label {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--gold);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 60px;
+        }
+        .devotional-today .card .body {
+            padding: 40px 36px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .devotional-today .card .body .tag {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--gold);
+            font-weight: 600;
+        }
+        .devotional-today .card .body h3 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--primary-purple);
+            margin: 8px 0 12px;
+            font-weight: 600;
+        }
+        .devotional-today .card .body p {
+            color: var(--text-muted);
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        .devotional-today .card .body .signature {
+            font-family: var(--font-script);
+            font-size: 1.8rem;
+            color: var(--primary-purple);
+            margin-top: 4px;
+        }
+        .devotional-today .card .body .btn-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* ============================================================
+                   LATEST CHAPTERS
+                   ============================================================ */
+        .latest-chapters {
+            background: var(--warm-white);
+        }
+        .latest-chapters .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .latest-chapters .card {
+            background: #fff;
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(107, 46, 131, 0.05);
+            transition: var(--transition-smooth);
+            border: 1px solid rgba(212, 175, 55, 0.06);
+        }
+        .latest-chapters .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(107, 46, 131, 0.08);
+        }
+        .latest-chapters .card .thumb {
+            height: 180px;
+            background: linear-gradient(145deg, var(--soft-pink), var(--soft-lavender));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: rgba(107, 46, 131, 0.08);
+        }
+        .latest-chapters .card .info {
+            padding: 24px 24px 28px;
+        }
+        .latest-chapters .card .info .date {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--gold);
+            font-weight: 500;
+        }
+        .latest-chapters .card .info h4 {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            color: var(--primary-purple);
+            margin: 6px 0 8px;
+            font-weight: 600;
+        }
+        .latest-chapters .card .info p {
+            color: var(--text-muted);
+            font-weight: 300;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ============================================================
+                   WALK WITH US
+                   ============================================================ */
+        .walk-with-us {
+            background: var(--cream);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .walk-with-us::after {
+            content: '✦';
+            position: absolute;
+            bottom: -40px;
+            right: -40px;
+            font-size: 20rem;
+            opacity: 0.03;
+            pointer-events: none;
+        }
+        .walk-with-us .content {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .walk-with-us .content p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            line-height: 1.9;
+            margin: 20px 0 36px;
+        }
+        .walk-with-us .content .pill-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .walk-with-us .content .pill-group .pill {
+            background: rgba(107, 46, 131, 0.06);
+            padding: 10px 24px;
+            border-radius: 60px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            border: 1px solid rgba(212, 175, 55, 0.06);
+            transition: var(--transition-smooth);
+        }
+        .walk-with-us .content .pill-group .pill:hover {
+            background: var(--primary-purple);
+            color: #fff;
+            border-color: var(--primary-purple);
+        }
+
+        /* ============================================================
+                   FOOTER
+                   ============================================================ */
+        .site-footer {
+            background: var(--primary-purple);
+            color: rgba(255, 255, 255, 0.80);
+            padding: 60px 0 30px;
+        }
+        .site-footer .grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .site-footer .grid h4 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+        .site-footer .grid p,
+        .site-footer .grid a {
+            font-weight: 300;
+            font-size: 0.95rem;
+            line-height: 2;
+            color: rgba(255, 255, 255, 0.70);
+            transition: var(--transition-smooth);
+            display: block;
+        }
+        .site-footer .grid a:hover {
+            color: var(--gold);
+            padding-left: 4px;
+        }
+        .site-footer .grid .founder-name {
+            font-family: var(--font-script);
+            font-size: 2rem;
+            color: var(--gold);
+            display: block;
+            margin-top: 4px;
+        }
+        .site-footer .grid .contact-line {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.70);
+        }
+        .site-footer .bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.50);
+        }
+        .site-footer .bottom .socials {
+            display: flex;
+            gap: 18px;
+        }
+        .site-footer .bottom .socials a {
+            color: rgba(255, 255, 255, 0.50);
+            transition: var(--transition-smooth);
+            font-size: 1.1rem;
+        }
+        .site-footer .bottom .socials a:hover {
+            color: var(--gold);
+        }
+
+        /* ============================================================
+                   PAGE STAGE — book page-turn router
+                   ============================================================ */
+        #pageStage {
+            position: relative;
+            perspective: 1800px;
+        }
+
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+
+        .page.flip-leave {
+            display: block;
+            animation: pageLeave 0.42s cubic-bezier(0.55, 0.06, 0.68, 0.19) forwards;
+            transform-origin: left center;
+            backface-visibility: hidden;
+        }
+        .page.flip-enter {
+            display: block;
+            animation: pageEnter 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            transform-origin: right center;
+            backface-visibility: hidden;
+        }
+
+        @keyframes pageLeave {
+            0% {
+                transform: rotateY(0deg) translateZ(0);
+                opacity: 1;
+                filter: brightness(1);
+            }
+            100% {
+                transform: rotateY(-16deg) translateZ(-60px);
+                opacity: 0;
+                filter: brightness(0.9);
+            }
+        }
+        @keyframes pageEnter {
+            0% {
+                transform: rotateY(14deg) translateZ(-50px);
+                opacity: 0;
+                filter: brightness(0.92);
+            }
+            55% {
+                opacity: 1;
+            }
+            100% {
+                transform: rotateY(0deg) translateZ(0);
+                opacity: 1;
+                filter: brightness(1);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .page.flip-leave,
+            .page.flip-enter {
+                animation: none !important;
+            }
+        }
+
+        /* ============================================================
+                   SIGNATURE FLASH — shown during the page turn
+                   ============================================================ */
+        #signatureFlash {
+            position: fixed;
+            inset: 0;
+            z-index: 6000;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: scale(0.92);
+            transition: opacity 0.35s ease, transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+            background: radial-gradient(circle at center, rgba(255, 249, 245, 0.55) 0%, rgba(255, 249, 245, 0) 62%);
+        }
+        #signatureFlash.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+        #signatureFlash span {
+            font-family: var(--font-script);
+            font-size: clamp(2.6rem, 7vw, 5.2rem);
+            color: var(--gold);
+            text-shadow: 0 6px 30px rgba(107, 46, 131, 0.25);
+            letter-spacing: 0.5px;
+        }
+
+        /* ============================================================
+                   NAV — active page indicator
+                   ============================================================ */
+        .nav-desktop a.active-link,
+        .nav-mobile a.active-link {
+            color: var(--primary-purple);
+        }
+        .nav-desktop a.active-link::after {
+            width: 100%;
+        }
+
+        /* ============================================================
+                   PAGE BANNER — inner-page hero
+                   ============================================================ */
+        .page-banner {
+            padding: 150px 0 70px;
+            background: linear-gradient(165deg, var(--cream) 0%, var(--warm-white) 45%, #f5edf7 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-banner::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: -10%;
+            width: 55%;
+            height: 80%;
+            background: radial-gradient(ellipse, rgba(207, 168, 255, 0.14) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .page-banner .eyebrow {
+            display: inline-block;
+            font-size: 0.78rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 500;
+            margin-bottom: 14px;
+        }
+        .page-banner h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+            color: var(--primary-purple);
+            font-weight: 600;
+            line-height: 1.1;
+            position: relative;
+            z-index: 2;
+        }
+        .page-banner p {
+            max-width: 620px;
+            margin: 18px auto 0;
+            color: var(--text-muted);
+            font-weight: 300;
+            font-size: 1.08rem;
+            line-height: 1.8;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ============================================================
+                   BIO CARD — founder / about
+                   ============================================================ */
+        .bio-card {
+            background: #fff;
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            display: grid;
+            grid-template-columns: 0.9fr 1.3fr;
+            border: 1px solid rgba(212, 175, 55, 0.06);
+        }
+        .bio-card .img {
+            background: linear-gradient(145deg, var(--soft-lavender), var(--soft-pink));
+            min-height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            color: rgba(107, 46, 131, 0.14);
+        }
+        .bio-card .body {
+            padding: 44px 40px;
+        }
+        .bio-card .body .tag {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--gold);
+            font-weight: 600;
+        }
+        .bio-card .body h3 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--primary-purple);
+            margin: 8px 0 14px;
+            font-weight: 600;
+        }
+        .bio-card .body p {
+            color: var(--text-muted);
+            font-weight: 300;
+            line-height: 1.85;
+            margin-bottom: 14px;
+        }
+        .bio-card .body .signature {
+            font-family: var(--font-script);
+            font-size: 2rem;
+            color: var(--primary-purple);
+            margin-top: 6px;
+        }
+
+        /* ============================================================
+                   VALUES PILLS
+                   ============================================================ */
+        .values-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 40px;
+        }
+        .values-cloud .pill {
+            background: #fff;
+            border: 1px solid rgba(212, 175, 55, 0.14);
+            padding: 12px 26px;
+            border-radius: 60px;
+            font-size: 0.92rem;
+            color: var(--primary-purple);
+            font-weight: 500;
+            box-shadow: 0 4px 16px rgba(107, 46, 131, 0.05);
+            transition: var(--transition-smooth);
+        }
+        .values-cloud .pill:hover {
+            background: var(--primary-purple);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* ============================================================
+                   STATEMENT OF FAITH LIST
+                   ============================================================ */
+        .faith-list {
+            max-width: 760px;
+            margin: 40px auto 0;
+            display: grid;
+            gap: 18px;
+        }
+        .faith-list .item {
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+            background: #fff;
+            border: 1px solid rgba(212, 175, 55, 0.08);
+            border-radius: 16px;
+            padding: 22px 26px;
+            box-shadow: 0 4px 16px rgba(107, 46, 131, 0.04);
+        }
+        .faith-list .item .mark {
+            color: var(--gold);
+            font-size: 1.3rem;
+            line-height: 1.4;
+            flex-shrink: 0;
+        }
+        .faith-list .item h4 {
+            font-family: var(--font-heading);
+            color: var(--primary-purple);
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .faith-list .item p {
+            color: var(--text-muted);
+            font-weight: 300;
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+
+        /* ============================================================
+                   TIMELINE
+                   ============================================================ */
+        .timeline {
+            max-width: 760px;
+            margin: 50px auto 0;
+            position: relative;
+            padding-left: 40px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 9px;
+            top: 6px;
+            bottom: 6px;
+            width: 2px;
+            background: linear-gradient(var(--gold), var(--soft-lavender));
+            opacity: 0.35;
+        }
+        .timeline .stop {
+            position: relative;
+            padding-bottom: 40px;
+        }
+        .timeline .stop:last-child {
+            padding-bottom: 0;
+        }
+        .timeline .stop::before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 4px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--cream);
+            border: 3px solid var(--gold);
+        }
+        .timeline .stop .year {
+            font-family: var(--font-body);
+            font-size: 0.78rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 600;
+        }
+        .timeline .stop h4 {
+            font-family: var(--font-heading);
+            color: var(--primary-purple);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 4px 0 6px;
+        }
+        .timeline .stop p {
+            color: var(--text-muted);
+            font-weight: 300;
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+
+        /* ============================================================
+                   FILTER BAR — devotionals / journal
+                   ============================================================ */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 40px 0 10px;
+        }
+        .filter-pill {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1.5px solid rgba(255, 255, 255, 0.4);
+            padding: 9px 22px;
+            border-radius: 60px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.92);
+            font-weight: 500;
+            transition: var(--transition-smooth);
+        }
+        .filter-pill:hover {
+            border-color: var(--gold);
+            color: var(--gold-light);
+            background: rgba(255, 255, 255, 0.14);
+        }
+        .filter-pill.active {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: #3b1146;
+        }
+
+        /* ============================================================
+                   TABS — events
+                   ============================================================ */
+        .tab-bar {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 36px 0 10px;
+        }
+        .tab-btn {
+            padding: 12px 32px;
+            border-radius: 60px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.92);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1.5px solid rgba(255, 255, 255, 0.4);
+            transition: var(--transition-smooth);
+        }
+        .tab-btn:hover {
+            border-color: var(--gold);
+            color: var(--gold-light);
+            background: rgba(255, 255, 255, 0.14);
+        }
+        .tab-btn.active {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: #3b1146;
+        }
+        .tab-panel {
+            display: none;
+        }
+        .tab-panel.active {
+            display: block;
+        }
+
+        .event-card {
+            background: #fff;
+            border-radius: var(--radius-card);
+            display: flex;
+            gap: 24px;
+            padding: 26px;
+            box-shadow: 0 4px 20px rgba(107, 46, 131, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.06);
+            transition: var(--transition-smooth);
+        }
+        .event-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(107, 46, 131, 0.08);
+        }
+        .event-card .date-badge {
+            flex-shrink: 0;
+            width: 78px;
+            height: 78px;
+            border-radius: 16px;
+            background: linear-gradient(145deg, var(--soft-pink), var(--soft-lavender));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .event-card .date-badge .day {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: var(--primary-purple);
+            font-weight: 700;
+            line-height: 1;
+        }
+        .event-card .date-badge .mon {
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--primary-purple);
+            opacity: 0.75;
+            margin-top: 2px;
+        }
+        .event-card .info h4 {
+            font-family: var(--font-heading);
+            color: var(--primary-purple);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .event-card .info .loc {
+            font-size: 0.8rem;
+            color: var(--gold);
+            font-weight: 500;
+            margin-bottom: 8px;
+            letter-spacing: 0.3px;
+        }
+        .event-card .info p {
+            color: var(--text-muted);
+            font-weight: 300;
+            font-size: 0.94rem;
+            line-height: 1.7;
+        }
+        .event-card .info .btn {
+            margin-top: 14px;
+            padding: 9px 24px;
+            font-size: 0.82rem;
+        }
+
+        /* ============================================================
+                   PARTNERSHIP TIERS
+                   ============================================================ */
+        .give-block {
+            background: linear-gradient(150deg, var(--primary-purple), var(--royal-purple));
+            border-radius: 28px;
+            padding: 56px 48px;
+            text-align: center;
+            color: #fff;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        .give-block::after {
+            content: '✦';
+            position: absolute;
+            bottom: -30px;
+            right: -20px;
+            font-size: 12rem;
+            opacity: 0.06;
+        }
+        .give-block h3 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-weight: 600;
+            margin-bottom: 14px;
+            position: relative;
+            z-index: 2;
+        }
+        .give-block p {
+            max-width: 560px;
+            margin: 0 auto 28px;
+            font-weight: 300;
+            opacity: 0.88;
+            line-height: 1.8;
+            position: relative;
+            z-index: 2;
+        }
+        .give-block .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+        .give-block .btn-gold-outline {
+            background: transparent;
+            border: 1.5px solid var(--gold-light);
+            color: var(--gold-light);
+        }
+        .give-block .btn-gold-outline:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: #fff;
+        }
+
+        /* ============================================================
+                   CONTACT PAGE
+                   ============================================================ */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 50px;
+            margin-top: 50px;
+            align-items: start;
+        }
+        .contact-info-card {
+            background: #fff;
+            border-radius: var(--radius-card);
+            padding: 40px 34px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(212, 175, 55, 0.06);
+        }
+        .contact-info-card h3 {
+            font-family: var(--font-heading);
+            color: var(--primary-purple);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .contact-info-card .line {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        .contact-info-card .line .ic {
+            font-size: 1.2rem;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+        .contact-info-card .line strong {
+            display: block;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        .contact-info-card .line span {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+        .contact-info-card .map-placeholder {
+            margin-top: 24px;
+            border-radius: 16px;
+            aspect-ratio: 16/10;
+            background: linear-gradient(150deg, var(--soft-lavender), var(--soft-pink));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            color: var(--primary-purple);
+        }
+        .map-placeholder .pin {
+            font-size: 2rem;
+        }
+        .map-placeholder span {
+            font-size: 0.85rem;
+            font-weight: 500;
+            opacity: 0.75;
+        }
+
+        .contact-form-card {
+            background: #fff;
+            border-radius: var(--radius-card);
+            padding: 44px 40px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(212, 175, 55, 0.06);
+        }
+        .contact-form-card h3 {
+            font-family: var(--font-heading);
+            color: var(--primary-purple);
+            font-size: 1.6rem;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+        .contact-form-card > p {
+            color: var(--text-muted);
+            font-weight: 300;
+            font-size: 0.94rem;
+            margin-bottom: 26px;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+        .field {
+            margin-bottom: 20px;
+        }
+        .field label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+        .field input,
+        .field textarea,
+        .field select {
+            width: 100%;
+            padding: 13px 16px;
+            border-radius: 12px;
+            border: 1.5px solid rgba(107, 46, 131, 0.14);
+            background: var(--warm-white);
+            font-family: var(--font-body);
+            font-size: 0.94rem;
+            color: var(--text-dark);
+            transition: var(--transition-smooth);
+        }
+        .field textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .field input:focus,
+        .field textarea:focus,
+        .field select:focus {
+            outline: none;
+            border-color: var(--primary-purple);
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(107, 46, 131, 0.08);
+        }
+        .form-note {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            opacity: 0.75;
+            margin-top: 4px;
+        }
+
+        /* ============================================================
+                   RESPONSIVE
+                   ============================================================ */
+        @media (max-width: 1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .hero-image .frame {
+                max-width: 360px;
+                margin: 0 auto;
+            }
+            .who-we-are .grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .who-we-are .grid .text .verse {
+                text-align: left;
+            }
+            .proverbs-section .grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .proverbs-section .grid .verse-block {
+                text-align: left;
+            }
+            .devotional-today .card {
+                grid-template-columns: 1fr;
+            }
+            .site-footer .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .nav-desktop {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .section-padding {
+                padding: 60px 0;
+            }
+            .hero {
+                padding: 100px 0 60px;
+                min-height: auto;
+            }
+            .hero-image .frame {
+                max-width: 280px;
+            }
+            .expressions .cards {
+                grid-template-columns: 1fr;
+            }
+            .latest-chapters .grid {
+                grid-template-columns: 1fr;
+            }
+            .site-footer .grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+            .site-footer .bottom {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .page-turn-overlay .page-card {
+                padding: 32px 24px;
+                width: 96%;
+            }
+            .page-turn-overlay .page-card h2 {
+                font-size: 1.6rem;
+            }
+            .btn {
+                padding: 12px 28px;
+                font-size: 0.85rem;
+            }
+            .devotional-today .card .body {
+                padding: 28px 20px;
+            }
+            .devotional-today .card .body h3 {
+                font-size: 1.4rem;
+            }
+            .proverbs-section .grid .verse-block {
+                padding: 28px 20px;
+            }
+            .who-we-are .grid .text .verse {
+                font-size: 1.2rem;
+                padding-left: 16px;
+            }
+        }
+
+        /* ============================================================
+                   SCRIPTURE ROTATOR (tiny)
+                   ============================================================ */
+        .scripture-rotator {
+            display: flex;
+            justify-content: center;
+            gap: 12px 24px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            opacity: 0.7;
+        }
+        .scripture-rotator span {
+            white-space: nowrap;
+        }
+        .scripture-rotator .ref {
+            color: var(--gold);
+            font-weight: 400;
+        }
+
+        /* ============================================================
+                   SMOOTH REVEAL (simple)
+                   ============================================================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ============================================================
+                   RESPONSIVE — new page components
+                   ============================================================ */
+        @media (max-width: 1024px) {
+            .bio-card {
+                grid-template-columns: 1fr;
+            }
+            .bio-card .img {
+                min-height: 220px;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .who-we-are-grid,
+            .proverbs-grid {
+                grid-template-columns: 1fr !important;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .page-banner {
+                padding: 130px 0 50px;
+            }
+            .event-card {
+                flex-direction: column;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .contact-form-card,
+            .contact-info-card {
+                padding: 30px 24px;
+            }
+            .give-block {
+                padding: 40px 28px;
+            }
+            .bio-card .body {
+                padding: 30px 24px;
+            }
+            .timeline {
+                padding-left: 32px;
+            }
+            .timeline .stop::before {
+                left: -32px;
+            }
+        }
+
+        /* ============================================================
+                   VISUAL REFINEMENT — editorial imagery & restrained motion
+                   ============================================================ */
+        :root {
+            --ink: #241426;
+            --plum-deep: #35103f;
+            --plum: #64276f;
+            --lilac-wash: #f1eafb;
+        }
+
+        body {
+            background: #fffaf7;
+        }
+        .site-header {
+            background: rgba(255, 250, 247, .9);
+            box-shadow: 0 8px 32px rgba(50, 20, 55, .05);
+        }
+        .hero {
+            min-height: 780px;
+            background: linear-gradient(115deg, #fffaf6 0%, #fbf4fb 49%, #eee1f3 100%);
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 38vw;
+            height: 38vw;
+            right: -12vw;
+            bottom: -19vw;
+            border: 1px solid rgba(212, 175, 55, .4);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero-content h1 { color: var(--plum-deep); }
+        .hero-content h1 .gold-accent { color: #b17b22; }
+        .hero-image .frame {
+            max-width: 480px;
+            background: #d9c5e1;
+            border-radius: 180px 180px 24px 24px;
+            box-shadow: 22px 28px 0 rgba(212, 175, 55, .13), 0 28px 56px rgba(53, 16, 63, .18);
+        }
+        .hero-image .frame::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(46, 16, 55, 0) 38%, rgba(46, 16, 55, .35) 100%);
+        }
+        .hero-image .frame .silhouette,
+        .hero-image .frame .bible-icon,
+        .hero-image .frame .flower-deco { display: none; }
+        .hero-image .gold-border { inset: -16px 15px 15px -16px; border-color: rgba(177, 123, 34, .55); border-radius: 190px 190px 28px 28px; }
+        .scroll-indicator { animation-duration: 3.5s !important; }
+
+        .who-we-are .grid .image-placeholder,
+        .image-placeholder {
+            min-height: 440px;
+            background: linear-gradient(145deg, var(--soft-pink), var(--soft-lavender));
+            border-radius: 18px 18px 120px 18px;
+            box-shadow: -16px 18px 0 var(--lilac-wash), 0 22px 42px rgba(53, 16, 63, .12);
+        }
+        .image-placeholder span { display: none; }
+        .proverbs-section .grid .right-image {
+            background: linear-gradient(145deg, var(--soft-lavender), var(--soft-pink));
+            min-height: 440px;
+            border-radius: 110px 18px 18px 18px;
+            box-shadow: 16px 18px 0 rgba(212, 175, 55, .16), 0 22px 42px rgba(53, 16, 63, .12);
+        }
+        .proverbs-section .grid .right-image span { display: none; }
+
+        /* Lazy-loaded photo fill — used inside .frame / .image-placeholder / .right-image / .bio-card .img.
+           A soft tint sits over every photo, and each fades + gently zooms in once loaded, matching the
+           journal / devotional feel of the rest of the page. */
+        .bg-fill-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0;
+            transform: scale(1.06);
+            transition: opacity 0.9s ease, transform 8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .bg-fill-img.is-loaded {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .bg-fill-img.is-loaded:hover,
+        *:hover > .bg-fill-img.is-loaded {
+            transform: scale(1.05);
+        }
+        .photo-tint {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .expressions .card,
+        .devotional-today .card,
+        .gallery-preview .content {
+            border: 1px solid rgba(99, 39, 111, .09);
+            box-shadow: 0 12px 28px rgba(53, 16, 63, .06);
+        }
+        .expressions .card:hover { transform: translateY(-7px); box-shadow: 0 20px 38px rgba(53, 16, 63, .12); }
+        .expressions .card .icon { color: #b17b22; }
+
+        /* A turning sheet reveals the next page beneath it. */
+        #pageStage.is-turning { isolation: isolate; }
+        #pageStage.is-turning .page.flip-leave {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            overflow: hidden;
+            transform-origin: left center;
+            backface-visibility: hidden;
+            box-shadow: -22px 0 38px rgba(35, 12, 43, .26);
+            animation: pageLeave 1.15s cubic-bezier(.42, 0, .18, 1) forwards;
+        }
+        #pageStage.is-turning .page.flip-enter {
+            position: relative;
+            z-index: 1;
+            transform-origin: right center;
+            animation: pageEnter 1.15s cubic-bezier(.22, .8, .2, 1) both;
+        }
+        @keyframes pageLeave {
+            0% { transform: perspective(1800px) rotateY(0); opacity: 1; filter: brightness(1); }
+            45% { transform: perspective(1800px) rotateY(-68deg); opacity: 1; filter: brightness(.88); }
+            100% { transform: perspective(1800px) rotateY(-178deg); opacity: 0; filter: brightness(.58); }
+        }
+        @keyframes pageEnter {
+            0% { transform: scale(.986); opacity: .72; filter: brightness(.86); }
+            55% { opacity: 1; }
+            100% { transform: scale(1); opacity: 1; filter: brightness(1); }
+        }
+        .reveal { transform: translateY(18px); transition: opacity .55s ease-out, transform .55s ease-out; }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+        }
+        @media (max-width: 768px) {
+            .hero { min-height: auto; padding: 130px 0 100px; }
+            .hero .container { gap: 42px; }
+            .hero-image .frame { max-width: 390px; }
+            .who-we-are .grid .image-placeholder, .image-placeholder, .proverbs-section .grid .right-image { min-height: 330px; }
+        }
+        @media (max-width: 640px) {
+            #pageStage.is-turning .page.flip-leave { animation: mobilePageLeave .76s cubic-bezier(.4, 0, .2, 1) forwards; box-shadow: -10px 0 22px rgba(35, 12, 43, .18); }
+            #pageStage.is-turning .page.flip-enter { animation: mobilePageEnter .76s cubic-bezier(.22, .8, .2, 1) both; }
+            @keyframes mobilePageLeave { to { transform: translateX(-14%) rotateY(-10deg); opacity: 0; filter: brightness(.8); } }
+            @keyframes mobilePageEnter { from { transform: translateX(5%); opacity: .62; filter: brightness(.9); } to { transform: translateX(0); opacity: 1; filter: brightness(1); } }
+        }
+
+        /* Persistent, low-pressure contact action. */
+        .floating-whatsapp {
+            position: fixed;
+            right: 26px;
+            bottom: 26px;
+            z-index: 1200;
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            min-height: 54px;
+            padding: 0 19px 0 15px;
+            border-radius: 999px;
+            background: #25d366;
+            color: #fff;
+            font-size: .88rem;
+            font-weight: 600;
+            letter-spacing: .01em;
+            box-shadow: 0 12px 28px rgba(23, 125, 69, .28);
+            transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+            animation: whatsappBreathe 3.4s ease-in-out infinite;
+        }
+        .floating-whatsapp .wa-icon {
+            display: grid;
+            width: 28px;
+            height: 28px;
+            place-items: center;
+            border-radius: 50%;
+            background: rgba(255,255,255,.2);
+            font-size: 1rem;
+        }
+        .floating-whatsapp .wa-icon svg { width: 18px; height: 18px; display: block; }
+        .floating-whatsapp:hover {
+            background: #1ebc5b;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 16px 34px rgba(23, 125, 69, .35);
+            animation-play-state: paused;
+        }
+        @keyframes whatsappBreathe {
+            0%, 100% { box-shadow: 0 12px 28px rgba(23, 125, 69, .28), 0 0 0 0 rgba(37, 211, 102, .28); }
+            50% { box-shadow: 0 15px 32px rgba(23, 125, 69, .32), 0 0 0 10px rgba(37, 211, 102, 0); }
+        }
+        @media (max-width: 640px) {
+            .floating-whatsapp { right: 18px; bottom: 18px; width: 54px; padding: 0; justify-content: center; }
+            .floating-whatsapp .wa-label { display: none; }
+        }
+
+        /* Fine UI polish for the remaining core pages. */
+        .page-banner {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(125deg, #3b1146 0%, #6b2e83 58%, #8d5aa0 100%);
+        }
+        .page-banner::after {
+            content: '';
+            position: absolute;
+            width: 430px;
+            height: 430px;
+            right: -140px;
+            top: -250px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,.18);
+            box-shadow: 0 0 0 38px rgba(255,255,255,.04), 0 0 0 76px rgba(255,255,255,.03);
+        }
+        .page-banner .container { position: relative; z-index: 1; }
+        .event-card, .contact-form-card, .contact-info-card, .bio-card {
+            border: 1px solid rgba(107, 46, 131, .09);
+            box-shadow: 0 16px 38px rgba(53, 16, 63, .08);
+        }
+        .event-card { transition: transform .3s ease, box-shadow .3s ease; }
+        .event-card:hover { transform: translateY(-4px); box-shadow: 0 22px 44px rgba(53, 16, 63, .13); }
+
+        /* Inner pages: high-contrast copy and a consistent editorial hierarchy. */
+        .page-banner h1 { color: #fff; text-shadow: 0 2px 16px rgba(28, 7, 34, .22); }
+        .page-banner p { color: rgba(255, 255, 255, .9); font-weight: 400; }
+        .page-banner .eyebrow { color: #f5d780; }
+        .page:not(#page-home) { background: #fffaf7; }
+        .page:not(#page-home) .section-subtitle { color: #4f3d53; font-weight: 400; }
+        .page:not(#page-home) p { color: #4a394d; }
+        .page:not(#page-home) .page-banner p { color: rgba(255, 255, 255, .9); }
+        .page:not(#page-home) .contact-info-card p,
+        .page:not(#page-home) .contact-form-card p,
+        .page:not(#page-home) .event-card p { color: #4a394d; font-weight: 400; }
+        .page:not(#page-home) .give-block p { color: rgba(255, 255, 255, 0.9); }
+
+        /* ============================================================
+           BRAND LOCKUP — matches the supplied "Unique Woman" artwork.
+           Built with generous line-height + overflow:visible on every
+           layer so the script font's ascenders/descenders are never
+           clipped, and a real inline SVG crown (not an emoji glyph,
+           which renders inconsistently — and often gets cropped — on
+           Android/iOS). Sizes shrink gracefully at each breakpoint so
+           the wordmark never collides with the hamburger or nav links.
+           ============================================================ */
+        .logo {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1;
+            overflow: visible;
+            padding: 4px 2px 2px;
+            min-width: 0;
+            flex-shrink: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .logo-the {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-weight: 500;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            color: var(--royal-purple);
+            opacity: 0.85;
+        }
+        .logo-crown {
+            display: block;
+            width: 20px;
+            height: 20px;
+            margin: 2px 0 -3px;
+            color: var(--gold);
+            flex-shrink: 0;
+            filter: drop-shadow(0 1px 2px rgba(53, 16, 63, 0.22));
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .logo-crown svg {
+            display: block;
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+        }
+        .logo:hover .logo-crown {
+            transform: translateY(-2px) rotate(-4deg);
+        }
+        .logo-main {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 6px;
+            overflow: visible;
+        }
+        .logo-unique {
+            font-family: var(--font-script);
+            font-size: 2.15rem;
+            line-height: 1.4;
+            padding-top: 0.1em;
+            display: inline-block;
+            background: linear-gradient(135deg, var(--royal-purple) 15%, var(--primary-purple) 85%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            white-space: nowrap;
+        }
+        .logo-woman {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--royal-purple);
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+        }
+
+        .bio-card { grid-template-columns: minmax(300px, .86fr) 1.35fr; background: #fff; }
+        .bio-card .img { position: relative; min-height: 510px; padding: 0; overflow: hidden; background: linear-gradient(145deg, #6b2e83, #e6c9da); }
+        .bio-card .img img { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; object-position: center; }
+        .bio-card .body { padding: 54px 50px; }
+        .bio-card .body h3 { font-size: clamp(2.1rem, 4vw, 3.1rem); color: #3b1146; }
+        .bio-card .body p { color: #443347; font-weight: 400; max-width: 62ch; }
+        .bio-card .body .tag { color: #956417; }
+        @media (max-width: 768px) {
+            .logo-unique { font-size: 1.7rem; }
+            .logo-crown { width: 17px; height: 17px; }
+            .logo-woman { font-size: 0.85rem; }
+            .bio-card { grid-template-columns: 1fr; }
+            .bio-card .img { min-height: 390px; }
+            .bio-card .body { padding: 38px 28px; }
+        }
+        @media (max-width: 400px) {
+            .logo-the { font-size: 0.58rem; letter-spacing: 1.4px; }
+            .logo-unique { font-size: 1.4rem; }
+            .logo-crown { width: 14px; height: 14px; margin-bottom: -2px; }
+            .logo-woman { font-size: 0.72rem; }
+            .logo-main { gap: 4px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================
+    SCROLL PROGRESS — thin gold line tracking read progress on each page
+    ============================================================ -->
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+    <!-- ============================================================
+    SIGNATURE FLASH — shown for a moment during every page turn
+    ============================================================ -->
+    <div id="signatureFlash" aria-hidden="true"><span>Enayi J. Ameh</span></div>
+
+    <!-- ============================================================
+    HEADER
+    ============================================================ -->
+    <header class="site-header" id="siteHeader">
+        <div class="container">
+            <a href="#home" class="logo" onclick="navigateTo('home'); return false;" aria-label="The Unique Woman — home">
+                <span class="logo-the">The</span>
+                <span class="logo-crown" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.5 8.2 8 11l4-6.6L16 11l4.5-2.8-1.7 9.3a1 1 0 0 1-1 .82H6.2a1 1 0 0 1-1-.82L3.5 8.2Z"/><rect x="5" y="19" width="14" height="2" rx="1"/></svg>
+                </span>
+                <span class="logo-main">
+                    <span class="logo-unique">Unique</span>
+                    <span class="logo-woman">Woman</span>
+                </span>
+            </a>
+
+            <nav class="nav-desktop" aria-label="Main navigation">
+                <a href="#home" data-nav="home" onclick="navigateTo('home'); return false;">Home</a>
+                <a href="#about" data-nav="about" onclick="navigateTo('about'); return false;">About</a>
+                <a href="#devotionals" data-nav="devotionals" onclick="navigateTo('devotionals'); return false;">Devotionals</a>
+                <a href="#events" data-nav="events" onclick="navigateTo('events'); return false;">Events</a>
+                <a href="#partnership" data-nav="partnership" onclick="navigateTo('partnership'); return false;">Partnership</a>
+                <a href="#contact" data-nav="contact" onclick="navigateTo('contact'); return false;" class="nav-btn">Contact</a>
+            </nav>
+
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" onclick="toggleMobileNav()">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ============================================================
+    MOBILE NAV
+    ============================================================ -->
+    <nav class="nav-mobile" id="mobileNav" aria-label="Mobile navigation">
+        <a href="#home" data-nav="home" onclick="navigateTo('home'); return false;">⌂ Home</a>
+        <a href="#about" data-nav="about" onclick="navigateTo('about'); return false;">✧ About</a>
+        <a href="#devotionals" data-nav="devotionals" onclick="navigateTo('devotionals'); return false;">✞ Devotionals</a>
+        <a href="#events" data-nav="events" onclick="navigateTo('events'); return false;">◉ Events</a>
+        <a href="#partnership" data-nav="partnership" onclick="navigateTo('partnership'); return false;">♡ Partnership</a>
+        <a href="#contact" data-nav="contact" onclick="navigateTo('contact'); return false;" class="nav-btn-mobile">✉ Contact</a>
+    </nav>
+
+    <!-- ============================================================
+    PAGE STAGE — every page below turns like a leaf in a journal
+    ============================================================ -->
+    <div id="pageStage">
+
+    <!-- ============================================================
+    PAGE · HOME
+    ============================================================ -->
+    <div class="page active" id="page-home" data-page="home">
+    <section class="hero" id="section-home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>
+                    When God transforms
+                    <span class="gold-accent">one woman</span>,<br />
+                    He transforms generations.
+                </h1>
+                <p>
+                    The Unique Woman is a Christ-centered movement raising women of
+                    faith, wisdom, character, compassion and purpose.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary" onclick="navigateTo('about'); return false;">Read Our Story</a>
+                    <a href="#" class="btn btn-outline" onclick="navigateTo('devotionals'); return false;">Today's Devotional</a>
+                </div>
+                <div class="scripture-rotator">
+                    <span>✧ <span class="ref">Proverbs 31:25–31</span></span>
+                    <span>✧ <span class="ref">Colossians 1:27</span></span>
+                    <span>✧ <span class="ref">Isaiah 40:31</span></span>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="frame">
+                    <img class="bg-fill-img" src="images/1.webp" alt="A woman in prayer, hands folded over an open Bible" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')" onerror="this.style.display='none'" />
+                    <span class="silhouette">🙏</span>
+                    <span class="bible-icon">📖</span>
+                    <span class="flower-deco">🌸</span>
+                </div>
+                <div class="gold-border"></div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>⌄</span>
+            Scroll
+        </div>
+    </section>
+
+    <!-- ============================================================
+    WHO WE ARE
+    ============================================================ -->
+    <section class="who-we-are section-padding" id="section-about">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Who We Are</h2>
+                <p class="section-subtitle mx-auto">
+                    Not an organisation. Not merely an outreach. A movement.
+                </p>
+            </div>
+            <div class="grid">
+                <div class="text reveal">
+                    <p>
+                        The Unique Woman raises women who become answers to the prayers
+                        of others. We exist to disciple women into becoming spiritually
+                        mature, biblically grounded, emotionally healthy, intellectually
+                        equipped and practically useful in God's Kingdom.
+                    </p>
+                    <p>
+                        We believe every woman carries a God-given assignment capable of
+                        transforming generations.
+                    </p>
+                    <div class="verse">
+                        “She is clothed with strength and dignity;
+                        she can laugh at the days to come.”
+                        <span style="display:block; font-family:var(--font-body); font-size:0.85rem; font-style:normal; color:var(--gold); margin-top:4px;">
+                            Proverbs 31:25
+                        </span>
+                    </div>
+                    <p style="margin-top:12px;">
+                        Grace · Holiness · Warmth · Compassion · Peace · Prayer ·
+                        Motherhood · Wisdom · Leadership · Beauty · Hope · Purpose ·
+                        Humility · Gentleness · Biblical Excellence
+                    </p>
+                </div>
+                <div class="image-placeholder reveal">
+                    <img class="bg-fill-img" src="images/2.webp" alt="Women of The Unique Woman gathered in fellowship" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')" onerror="this.style.display='none'" />
+                    <div class="photo-tint" style="background:linear-gradient(180deg, rgba(43,14,49,0) 40%, rgba(43,14,49,.4) 100%);"></div>
+                    <span style="font-size:6rem; opacity:0.12;">✧</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    HOW LOVE FINDS EXPRESSION — 6 CARDS
+    ============================================================ -->
+    <section class="expressions section-padding" id="section-devotionals">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">How Love Finds Expression</h2>
+                <p class="section-subtitle mx-auto">
+                    Six pillars of our ministry — each one a doorway to service and transformation.
+                </p>
+            </div>
+            <div class="cards">
+                <div class="card reveal">
+                    <span class="icon">🤝</span>
+                    <h3>The Unique Outreach</h3>
+                    <p>Meeting practical needs with the love of Christ in communities across Nigeria and beyond.</p>
+                    <a href="#" class="learn-more">Learn More →</a>
+                </div>
+                <div class="card reveal">
+                    <span class="icon">🌍</span>
+                    <h3>Mission Support</h3>
+                    <p>Equipping and sending missionaries to the harvest fields with prayer and resources.</p>
+                    <a href="#" class="learn-more">Learn More →</a>
+                </div>
+                <div class="card reveal">
+                    <span class="icon">📚</span>
+                    <h3>Academic Empowerment</h3>
+                    <p>Scholarships, mentorship and educational support for young women and girls.</p>
+                    <a href="#" class="learn-more">Learn More →</a>
+                </div>
+                <div class="card reveal">
+                    <span class="icon">🌱</span>
+                    <h3>Leadership Development</h3>
+                    <p>Raising women of influence who lead with grace, wisdom and biblical integrity.</p>
+                    <a href="#" class="learn-more">Learn More →</a>
+                </div>
+                <div class="card reveal">
+                    <span class="icon">🔥</span>
+                    <h3>Christian Conferences</h3>
+                    <p>Gatherings that ignite faith, build community and equip women for their calling.</p>
+                    <a href="#" class="learn-more">Learn More →</a>
+                </div>
+                <div class="card reveal">
+                    <span class="icon">🕊️</span>
+                    <h3>Daily Devotionals</h3>
+                    <p>Short, reflective, biblically grounded nourishment for the soul — every day.</p>
+                    <a href="#" class="learn-more">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    PROVERBS 31 SECTION
+    ============================================================ -->
+    <section class="proverbs-section section-padding" id="section-journal">
+        <div class="container">
+            <div class="grid">
+                <div class="verse-block reveal">
+                    <div style="display:flex; align-items:center; gap:12px; margin-bottom:4px;">
+                        <span style="font-size:1.8rem; color:var(--gold);">✧</span>
+                        <span style="font-weight:500; color:var(--text-muted); letter-spacing:0.5px; font-size:0.8rem; text-transform:uppercase;">Becoming</span>
+                    </div>
+                    <h3 style="font-family:var(--font-heading); font-size:clamp(1.8rem,3vw,2.8rem); color:var(--primary-purple); font-weight:600; margin-bottom:12px;">
+                        The Proverbs 31 Woman
+                    </h3>
+                    <div class="verse-text">
+                        “Charm is deceptive, and beauty is fleeting;
+                        but a woman who fears the Lord is to be praised.”
+                    </div>
+                    <span class="verse-ref">Proverbs 31:30</span>
+                    <p>
+                        Not legalistic — transformational. A woman of strength, dignity,
+                        wisdom and compassion. Not because she is perfect, but because
+                        she fears the Lord and walks in His grace.
+                    </p>
+                    <p style="margin-top:12px; font-size:0.95rem; color:var(--text-muted);">
+                        <span style="display:inline-block; background:rgba(212,175,55,0.10); padding:4px 16px; border-radius:60px; font-size:0.8rem; color:var(--gold);">
+                            ✦ She opens her mouth with wisdom
+                        </span>
+                    </p>
+                </div>
+                <div class="right-image reveal">
+                    <img class="bg-fill-img" src="images/3.webp" alt="A journal and open Bible, a picture of a life devoted to God's Word" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')" onerror="this.style.display='none'" />
+                    <div class="photo-tint" style="background:linear-gradient(160deg, rgba(52,15,62,0) 40%, rgba(52,15,62,.45) 100%);"></div>
+                    <span>🌸</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    TODAY'S DEVOTIONAL
+    ============================================================ -->
+    <section class="devotional-today section-padding" id="section-devotionals-2">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Today's Devotional</h2>
+                <p class="section-subtitle mx-auto">
+                    Short. Reflective. Biblically grounded. For your soul.
+                </p>
+            </div>
+            <div class="card reveal">
+                <div class="img">
+                    <img class="bg-fill-img" src="images/5.webp" alt="Today's devotional" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')" onerror="this.style.display='none'" />
+                    <span class="label">Today's Word</span>
+                </div>
+                <div class="body">
+                    <span class="tag">✧ Daily Manna</span>
+                    <h3>Prayer Changes You First</h3>
+                    <p>
+                        Prayer does not always change your situation first;
+                        it changes you first. As you kneel, the Spirit reshapes
+                        your heart, aligns your will, and deepens your trust.
+                        Keep praying — He is at work in you.
+                    </p>
+                    <p style="font-size:0.9rem; color:var(--text-muted); font-style:italic;">
+                        “Be transformed by the renewing of your mind.” — Romans 12:2
+                    </p>
+                    <div class="signature">Enayi J. Ameh.</div>
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-primary" style="padding:10px 28px; font-size:0.85rem;">Continue Reading</a>
+                        <a href="#" class="btn btn-outline" style="padding:10px 28px; font-size:0.85rem;">♡ Share</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    LATEST CHAPTERS
+    ============================================================ -->
+    <section class="latest-chapters section-padding" id="section-events">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Latest Chapters</h2>
+                <p class="section-subtitle mx-auto">
+                    Mission stories, events, humanitarian projects — the unfolding
+                    narrative of God's work through The Unique Woman.
+                </p>
+            </div>
+            <div class="grid">
+                <div class="card reveal">
+                    <div class="thumb">🌾</div>
+                    <div class="info">
+                        <div class="date">December 2025</div>
+                        <h4>December Outreach</h4>
+                        <p>Women and children in underserved communities were reached with food, clothing and the gospel to close out the year.</p>
+                    </div>
+                </div>
+                <div class="card reveal">
+                    <div class="thumb">🏠</div>
+                    <div class="info">
+                        <div class="date">17 July 2026</div>
+                        <h4>Orphanage Proprietors Outreach</h4>
+                        <p>Proprietors and caregivers of orphanages across the region were honoured and supported with resources for the children in their care.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    WALK WITH US
+    ============================================================ -->
+    <section class="walk-with-us section-padding" id="section-partnership">
+        <div class="container">
+            <div class="content reveal">
+                <span style="font-size:2.4rem; display:block; margin-bottom:8px;">🕊️</span>
+                <h2 class="section-title" style="margin-bottom:8px;">Walk With Us</h2>
+                <p>
+                    Every story of hope begins because someone quietly said yes.
+                    Some pray. Some encourage. Some volunteer. Some teach.
+                    Some provide resources. Some give.
+                </p>
+                <p>
+                    Whatever your expression of love may be, we would be honoured
+                    to have you journey with us.
+                </p>
+                <div class="pill-group">
+                    <span class="pill">🙏 Pray</span>
+                    <span class="pill">💬 Encourage</span>
+                    <span class="pill">🤲 Volunteer</span>
+                    <span class="pill">📖 Teach</span>
+                    <span class="pill">💎 Provide</span>
+                    <span class="pill">❤️ Give</span>
+                </div>
+                <div style="margin-top:36px;">
+                    <a href="#" class="btn btn-gold" onclick="navigateTo('contact'); return false;">Join the Movement</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div><!-- /page-home -->
+
+    <!-- ============================================================
+    PAGE · ABOUT
+    ============================================================ -->
+    <div class="page" id="page-about" data-page="about">
+
+        <section class="page-banner">
+            <div class="container">
+                <span class="eyebrow">✧ Our Story</span>
+                <h1>Not an organisation.<br />A movement of women.</h1>
+                <p>
+                    The Unique Woman began as a quiet conviction in one woman's heart —
+                    that when God transforms a woman, He transforms the home, the church
+                    and the nation she touches.
+                </p>
+            </div>
+        </section>
+
+        <section class="section-padding" style="background:var(--warm-white);">
+            <div class="container">
+                <div class="who-we-are-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;">
+                    <div class="text reveal">
+                        <h2 class="section-title">Our History</h2>
+                        <p style="color:var(--text-muted); font-weight:300; line-height:1.9; margin-bottom:18px;">
+                            What started as prayer meetings among a handful of women in Abuja
+                            grew, by God's grace, into a movement reaching students, mothers,
+                            missionaries and pastors' wives across Nigeria. Every chapter —
+                            an outreach, a scholarship, a retreat, a devotional written at
+                            midnight — has been an act of obedience before it was ever a program.
+                        </p>
+                        <p style="color:var(--text-muted); font-weight:300; line-height:1.9;">
+                            Today, The Unique Woman exists to disciple women into becoming
+                            spiritually mature, biblically grounded, emotionally healthy,
+                            intellectually equipped and practically useful in God's Kingdom —
+                            one life, one household, one generation at a time.
+                        </p>
+                    </div>
+                    <div class="image-placeholder reveal">
+                        <img class="bg-fill-img" src="images/3.webp" alt="An open Bible and journal, symbols of the movement's story" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')" onerror="this.style.display='none'" />
+                        <div class="photo-tint" style="background:linear-gradient(160deg, rgba(52,15,62,0) 40%, rgba(52,15,62,.45) 100%);"></div>
+                        <span style="font-size:6rem; opacity:0.12;">📖</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding" style="background:var(--cream);">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-title">Meet the Founder</h2>
+                    <p class="section-subtitle mx-auto">A daughter, a mother, a minister — carrying a burden for women after God's own heart.</p>
+                </div>
+                <div class="bio-card reveal" style="margin-top:40px;">
+                    <div class="img">
+                        <img class="bg-fill-img" src="images/about.webp" alt="Enayi J. Ameh, founder of The Unique Woman" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')" onerror="this.style.display='none'" />
+                    </div>
+                    <div class="body">
+                        <span class="tag">Founder · The Unique Woman</span>
+                        <h3>Enayi J. Ameh</h3>
+                        <p>
+                            Enayi J. Ameh is a wife, mother of four, sister and a mother to many.
+                            Her name speaks to that calling—mother of many children—and her open heart
+                            has reached thousands of lives across Nigeria with care, prayer and the gospel.
+                        </p>
+                        <p>
+                            A Nigerian from Benue State, she has dedicated her life to the ministry of
+                            Jesus Christ. She is a Christian and worker with the Redeemed Christian Church
+                            of God, Nigeria, serving women and families with humility, compassion and conviction.
+                        </p>
+                        <p>
+                            Her life reflects the character of a virtuous woman: rooted in Christ, rich in
+                            wisdom and purposeful in service—an embodiment of the Proverbs 31 woman.
+                        </p>
+                        <div class="signature">Enayi J. Ameh</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding" style="background:var(--warm-white);">
+            <div class="container">
+                <div class="proverbs-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:30px;">
+                    <div class="reveal" style="background:#fff; border-radius:var(--radius-card); padding:40px 36px; box-shadow:0 4px 20px rgba(107,46,131,0.05); border:1px solid rgba(212,175,55,0.06);">
+                        <span style="font-size:1.8rem; color:var(--gold);">✧</span>
+                        <h3 style="font-family:var(--font-heading); color:var(--primary-purple); font-size:1.6rem; font-weight:600; margin:10px 0 12px;">Our Vision</h3>
+                        <p style="color:var(--text-muted); font-weight:300; line-height:1.85;">
+                            To raise women who love Christ deeply, reflect His character
+                            faithfully, and influence homes, churches, communities and
+                            nations through purposeful living and compassionate service.
+                        </p>
+                    </div>
+                    <div class="reveal" style="background:#fff; border-radius:var(--radius-card); padding:40px 36px; box-shadow:0 4px 20px rgba(107,46,131,0.05); border:1px solid rgba(212,175,55,0.06);">
+                        <span style="font-size:1.8rem; color:var(--gold);">✦</span>
+                        <h3 style="font-family:var(--font-heading); color:var(--primary-purple); font-size:1.6rem; font-weight:600; margin:10px 0 12px;">Our Mission</h3>
+                        <p style="color:var(--text-muted); font-weight:300; line-height:1.85;">
+                            To disciple women into becoming spiritually mature, biblically
+                            grounded, emotionally healthy, intellectually equipped and
+                            practically useful in God's Kingdom — because every woman
+                            carries a God-given assignment capable of transforming generations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding" style="background:var(--cream);">
+            <div class="container text-center">
+                <h2 class="section-title">What We Carry</h2>
+                <p class="section-subtitle mx-auto">The character this ministry is built to communicate, in every room and every page.</p>
+                <div class="values-cloud">
+                    <span class="pill">Grace</span>
+                    <span class="pill">Holiness</span>
+                    <span class="pill">Warmth</span>
+                    <span class="pill">Compassion</span>
+                    <span class="pill">Peace</span>
+                    <span class="pill">Prayer</span>
+                    <span class="pill">Motherhood</span>
+                    <span class="pill">Wisdom</span>
+                    <span class="pill">Leadership</span>
+                    <span class="pill">Beauty</span>
+                    <span class="pill">Hope</span>
+                    <span class="pill">Purpose</span>
+                    <span class="pill">Humility</span>
+                    <span class="pill">Gentleness</span>
+                    <span class="pill">Biblical Excellence</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding" style="background:var(--warm-white);">
+            <div class="container text-center">
+                <h2 class="section-title">What We Believe</h2>
+                <p class="section-subtitle mx-auto">A brief statement of the faith that undergirds everything we do.</p>
+                <div class="faith-list">
+                    <div class="item reveal">
+                        <span class="mark">✧</span>
+                        <div>
+                            <h4>The Scriptures</h4>
+                            <p>We believe the Bible is the inspired, authoritative Word of God — our final rule for faith and living.</p>
+                        </div>
+                    </div>
+                    <div class="item reveal">
+                        <span class="mark">✧</span>
+                        <div>
+                            <h4>The Godhead</h4>
+                            <p>We believe in one God, eternally existing in three persons — Father, Son and Holy Spirit.</p>
+                        </div>
+                    </div>
+                    <div class="item reveal">
+                        <span class="mark">✧</span>
+                        <div>
+                            <h4>Salvation by Grace</h4>
+                            <p>We believe salvation is received by grace through faith in the finished work of Jesus Christ alone.</p>
+                        </div>
+                    </div>
+                    <div class="item reveal">
+                        <span class="mark">✧</span>
+                        <div>
+                            <h4>A Transformed Life</h4>
+                            <p>We believe genuine faith expresses itself through love, character, service and obedience — not performance.</p>
+                        </div>
+                    </div>
+                    <div class="item reveal">
+                        <span class="mark">✧</span>
+                        <div>
+                            <h4>The Church &amp; Prayer</h4>
+                            <p>We believe in the local church, the priesthood of every believer, and prayer as the lifeline of a surrendered life.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding" style="background:var(--cream);">
+            <div class="container text-center">
+                <h2 class="section-title">Our Journey</h2>
+                <p class="section-subtitle mx-auto">A few chapters in a story still being written.</p>
+                <div class="timeline" style="text-align:left;">
+                    <div class="stop reveal">
+                        <span class="year">The Beginning</span>
+                        <h4>A Prayer Circle in Abuja</h4>
+                        <p>A small group of women began meeting to pray and study the Word — the seed of what would become The Unique Woman.</p>
+                    </div>
+                    <div class="stop reveal">
+                        <span class="year">Early Years</span>
+                        <h4>First Outreach &amp; First Devotional</h4>
+                        <p>The ministry stepped into its first community outreach while daily devotionals began circulating among the women in fellowship.</p>
+                    </div>
+                    <div class="stop reveal">
+                        <span class="year">Growing</span>
+                        <h4>Conferences &amp; Academic Support</h4>
+                        <p>Annual gatherings began drawing women from beyond Abuja, alongside the first scholarships for young women pursuing their education.</p>
+                    </div>
+                    <div class="stop reveal">
+                        <span class="year">Today</span>
+                        <h4>A Movement, Still Growing</h4>
+                        <p>Mission support, humanitarian outreach, leadership development and daily discipleship — carried forward one obedient "yes" at a time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="walk-with-us section-padding">
+            <div class="container">
+                <div class="content reveal">
+                    <span style="font-size:2.4rem; display:block; margin-bottom:8px;">❀</span>
+                    <h2 class="section-title" style="margin-bottom:8px;">Be Part of the Journey</h2>
+                    <p>Meet with us at upcoming gatherings, retreats and ministry events.</p>
+                    <a href="#events" class="btn btn-primary" onclick="navigateTo('events'); return false;">Explore Events</a>
+                </div>
+            </div>
+        </section>
+
+    </div><!-- /page-about -->
+
+    <!-- ============================================================
+    PAGE · DEVOTIONALS
+    ============================================================ -->
+    <div class="page" id="page-devotionals" data-page="devotionals">
+
+        <section class="page-banner">
+            <div class="container">
+                <span class="eyebrow">✞ Daily Manna</span>
+                <h1>Devotionals</h1>
+                <p>Short. Reflective. Biblically grounded. Written in plain English — for your soul, every day.</p>
+                <div class="filter-bar" id="devFilterBar">
+                    <button class="filter-pill active" data-filter="all">All</button>
+                    <button class="filter-pill" data-filter="prayer">Prayer</button>
+                    <button class="filter-pill" data-filter="purpose">Purpose</button>
+                    <button class="filter-pill" data-filter="leadership">Leadership</button>
+                    <button class="filter-pill" data-filter="faith">Faith</button>
+                    <button class="filter-pill" data-filter="character">Character</button>
+                    <button class="filter-pill" data-filter="marriage">Marriage</button>
+                    <button class="filter-pill" data-filter="evangelism">Evangelism</button>
+                    <button class="filter-pill" data-filter="daily-living">Daily Living</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding" style="background:var(--cream); padding-top:20px;">
+            <div class="container">
+                <div class="latest-chapters" style="background:transparent;">
+                    <div class="grid" id="devGrid">
+
+                        <div class="card reveal dev-card" data-cat="prayer">
+                            <div class="thumb">🙏</div>
+                            <div class="info">
+                                <div class="date">Prayer</div>
+                                <h4>Prayer Changes You First</h4>
+                                <p>Prayer does not always change your situation first; it changes you first. Keep praying.</p>
+                            </div>
+                        </div>
+
+                        <div class="card reveal dev-card" data-cat="purpose">
+                            <div class="thumb">✦</div>
+                            <div class="info">
+                                <div class="date">Purpose</div>
+                                <h4>Fellowship Before Assignment</h4>
+                                <p>Your purpose is not found in busyness — it is found in fellowship with God. Stay close to Him.</p>
+                            </div>
+                        </div>
+
+                        <div class="card reveal dev-card" data-cat="leadership">
+                            <div class="thumb">🌱</div>
+                            <div class="info">
+                                <div class="date">Leadership</div>
+                                <h4>Character Before Status</h4>
+                                <p>God is never in a hurry to promote what He has not yet finished shaping. Let Him finish His work.</p>
+                            </div>
+                        </div>
+
+                        <div class="card reveal dev-card" data-cat="faith">
+                            <div class="thumb">✧</div>
+                            <div class="info">
+                                <div class="date">Faith</div>
+                                <h4>Keep Your Eyes on Him</h4>
+                                <p>When Peter looked at the wind, he sank. Faith rises again the moment your eyes return to Christ.</p>
+                            </div>
+                        </div>
+
+                        <div class="card reveal dev-card" data-cat="character">
+                            <div class="thumb">🕊️</div>
+                            <div class="info">
+                                <div class="date">Character</div>
+                                <h4>Obedience Is the Proof</h4>
+                                <p>Do not merely listen to the Word — do what it says. Obedience, not emotion, is the evidence of faith.</p>
+                            </div>
+                        </div>
+
+                        <div class="card reveal dev-card" data-cat="marriage">
+                            <div class="thumb">💍</div>
+                            <div class="info">
+                                <div class="date">Marriage</div>
+                                <h4>Surrender Before Ambition</h4>
+                                <p>A home is not built by two ambitions competing — it is built by two hearts surrendered to one Lord.</p>
+                            </div>
+                        </div>
+
+                        <div class="card reveal dev-card" data-cat="evangelism">
+                            <div class="thumb">🔥</div>
+                            <div class="info">
+                                <div class="date">Evangelism</div>
+                                <h4>Let Your Life Preach</h4>
+                                <p>You are the light God has made you. Some will read the Gospel in your life before they ever read it on a page.</p>
+                            </div>
+                        </div>
+
+                        <div class="card reveal dev-card" data-cat="daily-living">
+                            <div class="thumb">📖</div>
+                            <div class="info">
+                                <div class="date">Daily Living</div>
+                                <h4>Preparation Is an Answer</h4>
+                                <p>The quiet season you're in is not delay — it is preparation, and preparation is an answer to prayer.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="devotional-today section-padding">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-title">Today's Devotional</h2>
+                </div>
+                <div class="card reveal">
+                    <div class="img">
+                        <img class="bg-fill-img" src="images/5.webp" alt="Today's devotional" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')" onerror="this.style.display='none'" />
+                        <span class="label">Today's Word</span>
+                    </div>
+                    <div class="body">
+                        <span class="tag">✧ Daily Manna</span>
+                        <h3>Prayer Changes You First</h3>
+                        <p>
+                            Prayer does not always change your situation first; it changes
+                            you first. As you kneel, the Spirit reshapes your heart, aligns
+                            your will, and deepens your trust. Keep praying — He is at work in you.
+                        </p>
+                        <p style="font-size:0.9rem; color:var(--text-muted); font-style:italic;">
+                            "Be transformed by the renewing of your mind." — Romans 12:2
+                        </p>
+                        <div class="signature">Enayi J. Ameh.</div>
+                        <div class="btn-group">
+                            <a href="#" class="btn btn-primary" style="padding:10px 28px; font-size:0.85rem;">Continue Reading</a>
+                            <a href="#" class="btn btn-outline" style="padding:10px 28px; font-size:0.85rem;">♡ Share</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div><!-- /page-devotionals -->
+
+    <!-- ============================================================
+    PAGE · EVENTS
+    ============================================================ -->
+    <div class="page" id="page-events" data-page="events">
+
+        <section class="page-banner">
+            <div class="container">
+                <span class="eyebrow">◉ Gather With Us</span>
+                <h1>Events</h1>
+                <p>Conferences, retreats and gatherings that ignite faith, build community and equip women for their calling.</p>
+                <div class="tab-bar">
+                    <button class="tab-btn active" data-tab="upcoming">Upcoming</button>
+                    <button class="tab-btn" data-tab="past">Past</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding" style="background:var(--cream); padding-top:20px;">
+            <div class="container">
+
+                <div class="tab-panel active" id="tab-upcoming" style="display:grid; gap:22px; max-width:820px; margin:0 auto;">
+                    <div class="event-card reveal">
+                        <div class="date-badge"><span class="day">DEC</span><span class="mon">2026</span></div>
+                        <div class="info">
+                            <h4>December Outreach 2026</h4>
+                            <div class="loc">📍 Abuja, Nigeria</div>
+                            <p>Reaching underserved communities with food, clothing and the gospel to close out the year.</p>
+                            <a href="#contact" class="btn btn-primary" onclick="navigateTo('contact'); return false;">Register Interest</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-panel" id="tab-past" style="display:grid; gap:22px; max-width:820px; margin:0 auto;">
+                    <div class="event-card reveal">
+                        <div class="date-badge"><span class="day">DEC</span><span class="mon">2025</span></div>
+                        <div class="info">
+                            <h4>December Outreach</h4>
+                            <div class="loc">📍 Abuja, Nigeria</div>
+                            <p>Women and children in underserved communities were reached with food, clothing and the gospel to close out the year.</p>
+                        </div>
+                    </div>
+                    <div class="event-card reveal">
+                        <div class="date-badge"><span class="day">17</span><span class="mon">Jul</span></div>
+                        <div class="info">
+                            <h4>Orphanage Proprietors Outreach</h4>
+                            <div class="loc">📍 Abuja, Nigeria</div>
+                            <p>Proprietors and caregivers of orphanages across the region were honoured and supported with resources for the children in their care.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div><!-- /page-events -->
+
+
+    <!-- ============================================================
+    PAGE · PARTNERSHIP
+    ============================================================ -->
+    <div class="page" id="page-partnership" data-page="partnership">
+
+        <section class="page-banner">
+            <div class="container">
+                <span class="eyebrow">♡ Walk With Us</span>
+                <h1>Partnership</h1>
+                <p>Every story of hope begins because someone quietly said yes. Whatever your expression of love, we'd be honoured to have you journey with us.</p>
+            </div>
+        </section>
+
+        <section class="expressions section-padding" style="padding-top:20px;">
+            <div class="container">
+                <div class="cards">
+                    <div class="card reveal">
+                        <span class="icon">🙏</span>
+                        <h3>Pray</h3>
+                        <p>Join our prayer network and receive weekly prayer points for the women and missions we serve.</p>
+                    </div>
+                    <div class="card reveal">
+                        <span class="icon">❤️</span>
+                        <h3>Give</h3>
+                        <p>Support outreach, mission trips and scholarships with a one-time or recurring gift.</p>
+                    </div>
+                    <div class="card reveal">
+                        <span class="icon">🤲</span>
+                        <h3>Volunteer</h3>
+                        <p>Serve at conferences, outreaches and retreats — your time is a tangible expression of love.</p>
+                    </div>
+                    <div class="card reveal">
+                        <span class="icon">📚</span>
+                        <h3>Sponsor a Girl-Child</h3>
+                        <p>Fund school fees, books and mentorship for a young woman pursuing her education.</p>
+                    </div>
+                    <div class="card reveal">
+                        <span class="icon">⛪</span>
+                        <h3>Partner as a Church</h3>
+                        <p>Bring your church or organisation alongside us for outreach, conferences or mission support.</p>
+                    </div>
+                    <div class="card reveal">
+                        <span class="icon">🌍</span>
+                        <h3>Support a Missionary</h3>
+                        <p>Adopt a missionary family into your prayer and giving — the harvest fields need labourers.</p>
+                    </div>
+                </div>
+
+                <div class="give-block reveal">
+                    <h3>Ready to Partner?</h3>
+                    <p>
+                        Reach out and let us know how you'd like to journey with us — whether
+                        in prayer, giving, volunteering or partnership as a church.
+                    </p>
+                    <div class="btn-group">
+                        <a href="https://wa.me/2348033026101?text=Hello%2C%20I%27d%20like%20to%20partner%20with%20The%20Unique%20Woman." target="_blank" rel="noopener" class="btn btn-gold">💬 WhatsApp Us</a>
+                        <a href="#contact" class="btn btn-gold-outline" onclick="navigateTo('contact'); return false;">Contact Form</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div><!-- /page-partnership -->
+
+    <!-- ============================================================
+    PAGE · CONTACT
+    ============================================================ -->
+    <div class="page" id="page-contact" data-page="contact">
+
+        <section class="page-banner">
+            <div class="container">
+                <span class="eyebrow">✉ We'd Love to Hear From You</span>
+                <h1>Contact &amp; Prayer Requests</h1>
+                <p>Whether you have a prayer request, a question, or want to partner with us — reach out.</p>
+            </div>
+        </section>
+
+        <section class="section-padding" style="background:var(--cream); padding-top:0;">
+            <div class="container">
+                <div class="contact-grid">
+
+                    <div class="contact-info-card reveal">
+                        <h3>Reach Us Directly</h3>
+                        <div class="line"><span class="ic">📍</span><div><strong>Address</strong><span>Abuja, Nigeria</span></div></div>
+                        <div class="line"><span class="ic">📞</span><div><strong>Phone</strong><span>070309902181 / 07049216194</span></div></div>
+                        <div class="line"><span class="ic">💬</span><div><strong>WhatsApp</strong><span>0803 302 6101</span></div></div>
+                        <div class="line"><span class="ic">✉</span><div><strong>Email</strong><span>hello@theuniquewoman.org</span></div></div>
+                        <div class="line"><span class="ic">🙏</span><div><strong>Prayer Line</strong><span>Every request is read and prayed over</span></div></div>
+                        <a href="https://wa.me/2348033026101?text=Hello%2C%20I%27d%20like%20to%20share%20a%20prayer%20request." target="_blank" rel="noopener" class="btn btn-primary" style="width:100%; text-align:center; margin-top:8px;">💬 Message Us on WhatsApp</a>
+                        <div class="map-placeholder">
+                            <span class="pin">📍</span>
+                            <span>Abuja, FCT · Nigeria</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-card reveal">
+                        <h3>Send a Prayer Request or Message</h3>
+                        <p>Fill this in and our team will reach out to you personally.</p>
+                        <form id="contactForm" onsubmit="return handleContactSubmit(event)">
+                            <div class="form-row">
+                                <div class="field">
+                                    <label for="cf-name">Full Name</label>
+                                    <input type="text" id="cf-name" name="name" placeholder="Your name" required />
+                                </div>
+                                <div class="field">
+                                    <label for="cf-email">Email</label>
+                                    <input type="email" id="cf-email" name="email" placeholder="you@email.com" required />
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="cf-topic">This message is about</label>
+                                <select id="cf-topic" name="topic">
+                                    <option>Prayer Request</option>
+                                    <option>Partnership / Giving</option>
+                                    <option>Events</option>
+                                    <option>General Enquiry</option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <label for="cf-message">Your Message</label>
+                                <textarea id="cf-message" name="message" placeholder="Share what's on your heart..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
+                            <p class="form-note">This form is front-end only for now — connect it to Firebase (per the dev guide) to receive live submissions.</p>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </div><!-- /page-contact -->
+
+    </div><!-- /pageStage -->
+
+    <a class="floating-whatsapp" href="https://wa.me/2348033026101?text=Hello%2C%20I%27d%20like%20to%20find%20out%20more%20about%20The%20Unique%20Woman." target="_blank" rel="noopener" aria-label="Chat with The Unique Woman on WhatsApp">
+        <span class="wa-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.56 15.17L2 22l4.98-1.39A10 10 0 1 0 12 2Zm0 18.18a8.15 8.15 0 0 1-4.16-1.14l-.3-.18-2.95.82.79-2.87-.2-.3A8.18 8.18 0 1 1 12 20.18Zm4.49-6.13c-.25-.13-1.47-.73-1.7-.81-.23-.09-.4-.13-.57.13-.17.25-.66.81-.81.98-.15.17-.3.19-.55.06-1.49-.75-2.47-1.34-3.45-3.04-.26-.45.26-.42.74-1.4.08-.17.04-.32-.02-.45-.06-.13-.57-1.37-.78-1.87-.2-.48-.41-.42-.57-.43h-.49a.94.94 0 0 0-.68.32c-.23.25-.89.87-.89 2.12 0 1.25.91 2.46 1.04 2.63.13.17 1.8 2.74 4.35 3.85.61.26 1.08.42 1.45.54.61.19 1.17.16 1.61.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.11-.23-.17-.48-.3Z"/></svg></span>
+        <span class="wa-label">WhatsApp</span>
+    </a>
+
+    <!-- ============================================================
+    FOOTER — persistent on every page, signature always shown
+    ============================================================ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="grid">
+                <div>
+                    <h4 style="font-size:1.6rem; font-family:var(--font-heading); color:#fff; margin-bottom:8px;">
+                        The Unique Woman
+                    </h4>
+                    <p style="font-weight:300; max-width:300px;">
+                        Raising women of faith, wisdom, character, compassion and purpose
+                        — for the glory of God and the good of generations.
+                    </p>
+                    <span class="founder-name">Enayi J. Ameh</span>
+                    <p style="font-size:0.85rem; opacity:0.6; margin-top:4px;">Founder</p>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <a href="#about" onclick="navigateTo('about'); return false;">About Us</a>
+                    <a href="#about" onclick="navigateTo('about'); return false;">Our Beliefs</a>
+                    <a href="#partnership" onclick="navigateTo('partnership'); return false;">Get Involved</a>
+                    <a href="#contact" onclick="navigateTo('contact'); return false;">Contact</a>
+                </div>
+                <div>
+                    <h4>Resources</h4>
+                    <a href="#devotionals" onclick="navigateTo('devotionals'); return false;">Devotionals</a>
+                    <a href="#events" onclick="navigateTo('events'); return false;">Events</a>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <div class="contact-line">📍 Abuja, Nigeria</div>
+                    <div class="contact-line">📞 070309902181 / 07049216194</div>
+                    <div class="contact-line">✉ hello@theuniquewoman.org</div>
+                    <div style="margin-top:12px; display:flex; gap:12px;">
+                        <a href="https://wa.me/2348033026101" target="_blank" rel="noopener" style="font-size:1.2rem;">📱</a>
+                        <a href="#" style="font-size:1.2rem;">📘</a>
+                        <a href="#" style="font-size:1.2rem;">📸</a>
+                        <a href="#" style="font-size:1.2rem;">▶</a>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom">
+                <span>© 2026 The Unique Woman · All rights reserved.</span>
+                <div class="socials">
+                    <a href="#contact" onclick="navigateTo('contact'); return false;">Prayer Request</a>
+                    <a href="#" onclick="return false;">Privacy</a>
+                    <a href="#contact" onclick="navigateTo('contact'); return false;">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+    JAVASCRIPT
+    ============================================================ -->
+    <script>
+        // --------------------------------------------------------------
+        // PAGE ROUTER — book-style page turn
+        // --------------------------------------------------------------
+        const stage = document.getElementById('pageStage');
+        const pages = {};
+        document.querySelectorAll('#pageStage > .page').forEach(el => {
+            pages[el.dataset.page] = el;
+        });
+
+        const signatureFlash = document.getElementById('signatureFlash');
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        let currentPageId = 'home';
+        let isAnimating = false;
+
+        function updateActiveNav(id) {
+            document.querySelectorAll('[data-nav]').forEach(a => {
+                a.classList.toggle('active-link', a.dataset.nav === id);
+            });
+        }
+
+        function goToPage(id, opts = {}) {
+            if (!pages[id]) return;
+            closeMobileNav();
+
+            if (id === currentPageId && !opts.force) return;
+            if (isAnimating) return;
+
+            const outgoing = pages[currentPageId];
+            const incoming = pages[id];
+
+            if (prefersReducedMotion) {
+                outgoing.classList.remove('active');
+                incoming.classList.add('active');
+                window.scrollTo(0, 0);
+                currentPageId = id;
+                updateActiveNav(id);
+                if (!opts.silent) history.pushState({ page: id }, '', '#' + id);
+                return;
+            }
+
+            isAnimating = true;
+            // Keep both pages in the stage: the outgoing sheet turns away to reveal
+            // the next page underneath, rather than cutting between two layouts.
+            stage.style.minHeight = Math.max(outgoing.offsetHeight, incoming.offsetHeight) + 'px';
+            stage.classList.add('is-turning');
+            incoming.classList.add('active', 'flip-enter');
+            outgoing.classList.add('flip-leave');
+
+            const onLeaveEnd = () => {
+                outgoing.removeEventListener('animationend', onLeaveEnd);
+                outgoing.classList.remove('active', 'flip-leave');
+                window.scrollTo(0, 0);
+                incoming.classList.remove('flip-enter');
+                stage.classList.remove('is-turning');
+                stage.style.minHeight = '';
+                isAnimating = false;
+            };
+            outgoing.addEventListener('animationend', onLeaveEnd, { once: true });
+
+            currentPageId = id;
+            updateActiveNav(id);
+            if (!opts.silent) history.pushState({ page: id }, '', '#' + id);
+        }
+
+        // Public entry point used by every onclick in the markup
+        function navigateTo(id) {
+            goToPage(id);
+        }
+
+        // Deep-link on load
+        (function initRoute() {
+            const hash = (location.hash || '#home').replace('#', '');
+            const startId = pages[hash] ? hash : 'home';
+            currentPageId = startId;
+            Object.values(pages).forEach(p => p.classList.remove('active'));
+            pages[startId].classList.add('active');
+            updateActiveNav(startId);
+        })();
+
+        window.addEventListener('popstate', () => {
+            const hash = (location.hash || '#home').replace('#', '');
+            if (pages[hash]) goToPage(hash, { silent: true, force: true });
+        });
+
+        // --------------------------------------------------------------
+        // MOBILE NAV
+        // --------------------------------------------------------------
+        const mobileNav = document.getElementById('mobileNav');
+        const hamburger = document.getElementById('hamburgerBtn');
+
+        function toggleMobileNav() {
+            const open = mobileNav.classList.toggle('open');
+            hamburger.classList.toggle('active');
+            document.body.style.overflow = open ? 'hidden' : '';
+        }
+
+        function closeMobileNav() {
+            mobileNav.classList.remove('open');
+            hamburger.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1024) closeMobileNav();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeMobileNav();
+        });
+
+        // --------------------------------------------------------------
+        // REVEAL ON SCROLL — with a light stagger for sibling groups
+        // (cards in the same grid rise in one after another, not all at once)
+        // --------------------------------------------------------------
+        (function assignRevealStagger() {
+            const counters = new Map();
+            document.querySelectorAll('.reveal').forEach(el => {
+                const parent = el.parentElement;
+                const n = counters.get(parent) || 0;
+                counters.set(parent, n + 1);
+                if (n > 0) el.style.transitionDelay = Math.min(n * 90, 360) + 'ms';
+            });
+        })();
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // --------------------------------------------------------------
+        // SCROLL PROGRESS BAR — tracks read progress of the active page
+        // --------------------------------------------------------------
+        (function scrollProgress() {
+            const bar = document.getElementById('scrollProgress');
+            if (!bar) return;
+            let ticking = false;
+            function update() {
+                const doc = document.documentElement;
+                const scrollable = doc.scrollHeight - doc.clientHeight;
+                const pct = scrollable > 0 ? (doc.scrollTop / scrollable) * 100 : 0;
+                bar.style.width = pct + '%';
+                ticking = false;
+            }
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    requestAnimationFrame(update);
+                    ticking = true;
+                }
+            }, { passive: true });
+            update();
+        })();
+
+        // --------------------------------------------------------------
+        // HERO SCRIPTURE ROTATOR
+        // --------------------------------------------------------------
+        (function rotateScriptures() {
+            const container = document.querySelector('.scripture-rotator');
+            if (!container) return;
+            const verses = [
+                'Proverbs 31:25–31', 'Colossians 1:27', 'Isaiah 40:31', 'Acts 17:28',
+                'Psalm 34:19', 'Matthew 5:14–16', 'James 1:22', 'Micah 6:8',
+                'Philippians 4:13', 'Joshua 1:9', 'Romans 12:2', 'Galatians 6:9',
+                'Psalm 119:105', 'John 15:5', 'Matthew 28:19–20'
+            ];
+            let idx = 0;
+            setInterval(() => {
+                idx = (idx + 1) % verses.length;
+                container.querySelectorAll('.ref').forEach(el => { el.textContent = verses[idx]; });
+            }, 4500);
+        })();
+
+        // --------------------------------------------------------------
+        // DEVOTIONALS FILTER
+        // --------------------------------------------------------------
+        (function setupFilter(barId, cardSelector) {
+            const bar = document.getElementById(barId);
+            if (!bar) return;
+            bar.addEventListener('click', (e) => {
+                const btn = e.target.closest('.filter-pill');
+                if (!btn) return;
+                bar.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                document.querySelectorAll(cardSelector).forEach(card => {
+                    const show = filter === 'all' || card.dataset.cat === filter;
+                    card.style.display = show ? '' : 'none';
+                });
+            });
+        })('devFilterBar', '.dev-card');
+
+        // --------------------------------------------------------------
+        // EVENTS TABS
+        // --------------------------------------------------------------
+        document.querySelectorAll('.tab-bar').forEach(bar => {
+            bar.addEventListener('click', (e) => {
+                const btn = e.target.closest('.tab-btn');
+                if (!btn) return;
+                bar.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+                document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+            });
+        });
+
+        // --------------------------------------------------------------
+        // CONTACT FORM (front-end only — wire to Firebase per the dev guide)
+        // --------------------------------------------------------------
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const original = btn.textContent;
+            btn.textContent = '✓ Message Received — Thank You';
+            btn.style.background = 'var(--gold)';
+            btn.style.borderColor = 'var(--gold)';
+            e.target.reset();
+            setTimeout(() => {
+                btn.textContent = original;
+                btn.style.background = '';
+                btn.style.borderColor = '';
+            }, 3500);
+            return false;
+        }
+
+        // --------------------------------------------------------------
+        // READY
+        // --------------------------------------------------------------
+        console.log('✧ The Unique Woman · digital ministry · ready ✧');
+        console.log('"She is clothed with strength and dignity." — Proverbs 31:25');
+    </script>
+
+</body>
+</html>
