@@ -50,6 +50,9 @@
             scroll-behavior: smooth;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
         }
 
         body {
@@ -58,6 +61,9 @@
             color: var(--text-dark);
             line-height: 1.7;
             overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+            position: relative;
         }
 
         img {
@@ -335,13 +341,17 @@
             -webkit-backdrop-filter: blur(14px);
             border-bottom: 1px solid rgba(212, 175, 55, 0.10);
             transition: var(--transition-smooth);
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
         }
 
         .site-header .container {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 16px;
+            gap: 8px;
+            min-width: 0;
         }
 
         .nav-desktop {
@@ -860,13 +870,14 @@
             inset: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            object-position: center;
+        }
+        .devotional-today .card .img {
+            aspect-ratio: 4 / 5;
         }
         .devotional-today .card .img .label {
             position: absolute;
             top: 20px;
-            left: 20px;
+            right: 20px;
             background: var(--gold);
             color: #fff;
             font-size: 0.7rem;
@@ -875,6 +886,7 @@
             text-transform: uppercase;
             padding: 6px 16px;
             border-radius: 60px;
+            box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
         }
         .devotional-today .card .body {
             padding: 40px 36px;
@@ -1101,6 +1113,9 @@
         #pageStage {
             position: relative;
             perspective: 1800px;
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
         }
 
         .page {
@@ -1998,14 +2013,16 @@
 
         /* Lazy-loaded photo fill — used inside .frame / .image-placeholder / .right-image / .bio-card .img.
            A soft tint sits over every photo, and each fades + gently zooms in once loaded, matching the
-           journal / devotional feel of the rest of the page. */
+           journal / devotional feel of the rest of the page.
+           object-position is top-weighted (not plain "center") so cover-cropping never slices off a
+           face or head — the most common failure mode with portrait photography in a landscape-ish box. */
         .bg-fill-img {
             position: absolute;
             inset: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center;
+            object-position: 50% 18%;
             opacity: 0;
             transform: scale(1.06);
             transition: opacity 0.9s ease, transform 8s cubic-bezier(0.16, 1, 0.3, 1);
@@ -2017,6 +2034,24 @@
         .bg-fill-img.is-loaded:hover,
         *:hover > .bg-fill-img.is-loaded {
             transform: scale(1.05);
+        }
+
+        /* Designed graphics (the devotional card art has its own header logo + footer signature baked
+           into the image) must NEVER be cropped — object-fit: contain shows the whole graphic, letterboxed
+           on the card's own gradient instead of cutting text off the top or bottom. No hover-zoom either,
+           since zooming a contain-fit image would start clipping it again. */
+        .bg-fit-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            opacity: 0;
+            transition: opacity 0.9s ease;
+        }
+        .bg-fit-img.is-loaded {
+            opacity: 1;
         }
         .photo-tint {
             position: absolute;
@@ -2239,7 +2274,7 @@
 
         .bio-card { grid-template-columns: minmax(300px, .86fr) 1.35fr; background: #fff; }
         .bio-card .img { position: relative; min-height: 510px; padding: 0; overflow: hidden; background: linear-gradient(145deg, #6b2e83, #e6c9da); }
-        .bio-card .img img { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; object-position: center; }
+        .bio-card .img img { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; object-position: 50% 15%; }
         .bio-card .body { padding: 54px 50px; }
         .bio-card .body h3 { font-size: clamp(2.1rem, 4vw, 3.1rem); color: #3b1146; }
         .bio-card .body p { color: #443347; font-weight: 400; max-width: 62ch; }
@@ -2258,6 +2293,25 @@
             .logo-crown { width: 14px; height: 14px; margin-bottom: -2px; }
             .logo-woman { font-size: 0.72rem; }
             .logo-main { gap: 4px; }
+        }
+
+        /* ============================================================
+           MOBILE FIT — final safety net so nothing ever forces the
+           page wider than the viewport. Two hand-coded 2-column
+           sections (Our History / Vision & Mission) had no responsive
+           rule at all and never collapsed on phones; fixed here.
+           ============================================================ */
+        img, svg, video, iframe { max-width: 100%; }
+        .who-we-are-grid, .proverbs-grid { min-width: 0; }
+        .who-we-are-grid > *, .proverbs-grid > * { min-width: 0; }
+        @media (max-width: 768px) {
+            .who-we-are-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+            .who-we-are-grid .image-placeholder { min-height: 320px; order: -1; }
+            .proverbs-grid { grid-template-columns: 1fr !important; gap: 18px !important; }
+        }
+        @media (max-width: 360px) {
+            .expressions .cards,
+            .latest-chapters .grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -2512,7 +2566,7 @@
             </div>
             <div class="card reveal">
                 <div class="img">
-                    <img class="bg-fill-img" src="images/5.webp" alt="Today's devotional" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')" onerror="this.style.display='none'" />
+                    <img class="bg-fit-img" src="images/5.webp" alt="Today's devotional" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')" onerror="this.style.display='none'" />
                     <span class="label">Today's Word</span>
                 </div>
                 <div class="body">
@@ -2930,7 +2984,7 @@
                 </div>
                 <div class="card reveal">
                     <div class="img">
-                        <img class="bg-fill-img" src="images/5.webp" alt="Today's devotional" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')" onerror="this.style.display='none'" />
+                        <img class="bg-fit-img" src="images/5.webp" alt="Today's devotional" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')" onerror="this.style.display='none'" />
                         <span class="label">Today's Word</span>
                     </div>
                     <div class="body">
@@ -3136,7 +3190,6 @@
                                 <textarea id="cf-message" name="message" placeholder="Share what's on your heart..." required></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
-                            <p class="form-note">This form is front-end only for now — connect it to Firebase (per the dev guide) to receive live submissions.</p>
                         </form>
                     </div>
 
